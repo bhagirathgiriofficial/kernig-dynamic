@@ -95,6 +95,7 @@ return [
     'password_updation_failed' => 'Unable to change password, Please try again!.',
     'password_updated' => 'Password changed successfully.',
     'password_not_matched' => 'Incorrect current password, Please try again!.',
+    'password_confirm_not_match' => 'Password and Confirm Password does not match',
     //--------
 
     // Image Upload

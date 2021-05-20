@@ -452,8 +452,8 @@ Route::prefix('admin-panel')->group(function () {
 
 Route::prefix('/')->group(function () {
     Route::get('/', 'Frontend\HomeController@index');
-    Route::get('product', 'Frontend\ProductController@view');
-    Route::get('product-details', 'Frontend\ProductController@details');
+    Route::get('/category/{category}/{sub_category?}/{sub_sub_category?}', 'Frontend\ProductController@view');
+    Route::get('/product/{product_slug}', 'Frontend\ProductController@details');
     Route::get('sign-in', 'Frontend\UserController@showLogin');
     Route::post('subscribe-newsletter', 'Frontend\NewsLetterController@subscribe');
     Route::get('faq', function () {
@@ -471,6 +471,7 @@ Route::prefix('/')->group(function () {
     });
     Route::post('password/email', 'Frontend\UserController@sendResetLinkEmail')->name('frontend.passwordEmail');
     Route::get('password/reset/{temp_pass}/{email}', 'Frontend\UserController@showResetPasswordPage');
+    Route::post('change-password', 'Frontend\UserController@changePassword');
     Route::get('/google-login', function () {
         return Socialite::driver('google')->redirect();
     });

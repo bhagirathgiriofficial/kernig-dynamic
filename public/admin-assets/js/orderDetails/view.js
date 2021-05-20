@@ -9,9 +9,9 @@ var OrderDetails = (function () {
         init: function () {
             OrderDetails.getOrderDetails();
             // OrderDetails.changeStatus();
-            OrderDetails.moveToTrash();            
+            OrderDetails.moveToTrash();
         },
-        updateDataTableSelectAllCtrl: function (table) { 
+        updateDataTableSelectAllCtrl: function (table) {
             var $table = table.table().node();
             var $chkbox_all = $('tbody input[type="checkbox"]', $table);
             var $chkbox_checked = $(
@@ -90,17 +90,20 @@ var OrderDetails = (function () {
 
                     $(
                         '<div class="btn-toolbar"> ' +
-                        '<div class="btn-group" role="group"> ' +
-                        // '<button type="button" title="Change Status" class="btn btn-icon btn-default btn-outline change-status" disabled><i class="icon fa fa-exchange" aria-hidden="true"></i></button> ' +
-                        '<button type="button" title="Move to trash" class="btn btn-icon btn-default btn-outline dt-delete text-danger" disabled><i class="icon wb-trash" aria-hidden="true"></i></button> ' +
-                        "</div> " +
-                        "</div>"
+                            '<div class="btn-group" role="group"> ' +
+                            // '<button type="button" title="Change Status" class="btn btn-icon btn-default btn-outline change-status" disabled><i class="icon fa fa-exchange" aria-hidden="true"></i></button> ' +
+                            '<button type="button" title="Move to trash" class="btn btn-icon btn-default btn-outline dt-delete text-danger" disabled><i class="icon wb-trash" aria-hidden="true"></i></button> ' +
+                            "</div> " +
+                            "</div>"
                     ).insertAfter(".dataTables_filter");
                 },
                 processing: true,
                 serverSide: true,
                 lengthChange: true,
-                "lengthMenu": [[15, 25, 50, -1], [15, 25, 50, "All"]],
+                lengthMenu: [
+                    [15, 25, 50, -1],
+                    [15, 25, 50, "All"],
+                ],
                 buttons: [
                     // {
                     //     extend: "csv",
@@ -134,8 +137,10 @@ var OrderDetails = (function () {
                 ajax: {
                     url: $dataTable.data("url"),
                     data: function (d) {
-                        d.OrderDetails_name = $("input[name=OrderDetails_name]").val();
-                    }
+                        d.OrderDetails_name = $(
+                            "input[name=OrderDetails_name]"
+                        ).val();
+                    },
                 },
                 columnDefs: [
                     {
@@ -150,8 +155,8 @@ var OrderDetails = (function () {
                                 '<label for="record"></label>' +
                                 "</div>"
                             );
-                        }
-                    }
+                        },
+                    },
                 ],
                 aaSorting: [[1, "asc"]],
                 rowCallback: function (row, data, dataIndex) {
@@ -167,15 +172,23 @@ var OrderDetails = (function () {
                     }
                 },
                 columns: [
-                { data: null, name: null },
-                { data: "DT_RowIndex", name: "DT_RowIndex" },
-                { data: "order_number" , name: "order_number"},
-                { data: "user_details", name: "user_details", orderable: false},
-                { data: "price_details" , name: "price_details", orderable: false},
-                { data: "created_at", name: "created_at", orderable:true},
-                { data: "status", name: "status" , orderable: false},           
-                { data: "action" , name: "action", orderable: false},         
-                ]
+                    { data: null, name: null },
+                    { data: "DT_RowIndex", name: "DT_RowIndex" },
+                    { data: "order_number", name: "order_number" },
+                    {
+                        data: "user_details",
+                        name: "user_details",
+                        orderable: false,
+                    },
+                    {
+                        data: "price_details",
+                        name: "price_details",
+                        orderable: false,
+                    },
+                    { data: "created_at", name: "created_at", orderable: true },
+                    { data: "status", name: "status", orderable: false },
+                    { data: "action", name: "action", orderable: false },
+                ],
             });
 
             // Search button
@@ -183,7 +196,7 @@ var OrderDetails = (function () {
                 table.draw();
                 e.preventDefault();
             });
-            
+
             // Clear button
             $("#clearBtn").click(function () {
                 location.reload();
@@ -268,7 +281,7 @@ var OrderDetails = (function () {
         /**
          * Destroy record.
          */
-         moveToTrash: function () {
+        moveToTrash: function () {
             var $data_table_container = $(".data-table-container");
             var $dataTable = $(".dataTable");
             // Handle form submission event
@@ -295,80 +308,80 @@ var OrderDetails = (function () {
                     position: "center",
                     progressBar: false,
                     buttons: [
-                    [
-                    "<button><b>YES</b></button>",
-                    function (instance, toast) {
-                        console.log($dataTable.data("destroy-url"));
-                        $.ajax({
-                            type: "DELETE",
-                            url: $dataTable.data("destroy-url"),
-                            data: { ids: ids },
-                            beforeSend: function () {
-                                $(".dt-delete").prop("disabled", true);
+                        [
+                            "<button><b>YES</b></button>",
+                            function (instance, toast) {
+                                console.log($dataTable.data("destroy-url"));
+                                $.ajax({
+                                    type: "DELETE",
+                                    url: $dataTable.data("destroy-url"),
+                                    data: { ids: ids },
+                                    beforeSend: function () {
+                                        $(".dt-delete").prop("disabled", true);
+                                    },
+                                    success: function (response) {
+                                        App.showNotification(response);
+                                        data_table.draw();
+                                        $ids = [];
+                                        rows_selected = [];
+                                    },
+                                    error: function () {},
+                                    complete: function () {
+                                        $(".dt-delete").prop("disabled", true);
+                                    },
+                                });
+                                instance.hide(
+                                    { transitionOut: "fadeOut" },
+                                    toast,
+                                    "button"
+                                );
                             },
-                            success: function (response) {
-                                App.showNotification(response);
-                                data_table.draw();
-                                 $ids = [];
-                                rows_selected = [];
+                            true,
+                        ],
+                        [
+                            "<button>NO</button>",
+                            function (instance, toast) {
+                                instance.hide(
+                                    { transitionOut: "fadeOut" },
+                                    toast,
+                                    "button"
+                                );
                             },
-                            error: function () { },
-                            complete: function () {
-                                $(".dt-delete").prop("disabled", true);
-                            }
-                        });
-                        instance.hide(
-                            { transitionOut: "fadeOut" },
-                            toast,
-                            "button"
-                            );
-                    },
-                    true
-                    ],
-                    [
-                    "<button>NO</button>",
-                    function (instance, toast) {
-                        instance.hide(
-                            { transitionOut: "fadeOut" },
-                            toast,
-                            "button"
-                            );
-                    }
-                    ]
+                        ],
                     ],
                     onClosing: function (instance, toast, closedBy) {
                         console.info("Closing | closedBy: " + closedBy);
                     },
                     onClosed: function (instance, toast, closedBy) {
                         console.info("Closed | closedBy: " + closedBy);
-                    }
+                    },
                 });
             });
-        }
+        },
     };
 })();
 
 OrderDetails.init();
 
- function changeOrderStatus(elem) {
-        var status   = $(elem).val();
-        var id       = $(elem).data('id');
-        var goToUrl  = $(".dataTable").data('change-status-url');  
-        $.ajax({
-            type : "POST",
-            url  : goToUrl,
-            data : {
-                'id'     : id,
-                'status' : status,
-            },
-            beforeSend: function(){
-                $(elem).attr("disabled","true");
-            },
-            success:function(response){
-                App.showNotification(response);
-            },
-            complete: function () {
-                 $(elem).removeAttr("disabled");
-            }
-        });
-    }
+function changeOrderStatus(elem) {
+    var status = $(elem).val();
+    var id = $(elem).data("id");
+    var goToUrl = $(".dataTable").data("change-status-url");
+    $.ajax({
+        type: "POST",
+        url: goToUrl,
+        data: {
+            id: id,
+            status: status,
+        },
+        beforeSend: function () {
+            $(elem).attr("disabled", "true");
+        },
+        success: function (response) {
+            App.showNotification(response);
+        },
+        complete: function () {
+            $(elem).removeAttr("disabled");
+        },
+    });
+}

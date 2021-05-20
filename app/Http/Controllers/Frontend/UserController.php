@@ -143,7 +143,7 @@ class UserController extends Controller
             ];
             try {
                 Mail::send('emails.forgot_mail', $data, function ($message) use ($data) {
-                    $message->from('info@kerig.com', 'kerig'
+                    $message->from('info@kerig.com', 'kerig');
                     $message->to($data['user']['email'], $data['user']['f_name']);
                     $message->subject('Forgot Password');
                 });
@@ -168,6 +168,41 @@ class UserController extends Controller
             } else {
                 return view('frontend.reset-password')->withErrors(['The reset password key does not match.']);
             }
+        }
+    }
+
+    public function changePassword(Request $request)
+    {
+        $password = $request['password'];
+        $password_confirmation = $request['password_confirmation'];
+        $email = $request['email'] ?? "";
+        $userId = session('user_name') ?? "";
+        if ($email != "") {
+            // for forgot change password
+            $user = $this->checkUserExist($email);
+            if (is_null($user)) {
+                return redirect()->back()->withErrors('Invalid email provided');
+            } else {
+                if ($password == $password_confirmation) {
+                    DB::beginTransaction();
+                    try {
+                        $user->password = md5($password);
+                        $user->save();
+                        DB::commit();
+                        return redirect()->back()->with(['status' => __('messages.password_updated')]);
+                    } catch (\Exception $e) {
+                        DB::rollback();
+                        return redirect()->back()->withErrors([__('messages.email_address_not_exists')]);
+                    }
+                } else {
+                    return redirect()->back()->withErrors([__('messages.password_confirm_not_match')]);
+                }
+            }
+        } elseif ($userId != "") {
+            // for profile change password
+
+        } else {
+            return redirect()->back();
         }
     }
 }

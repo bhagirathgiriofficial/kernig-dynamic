@@ -10,13 +10,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
  * Product Model
  * @author : Bhagirath
- * @created : 05 - Feb -2020 
+ * @created : 05 - Feb -2020
 
 */
 
 
 class Product extends Model
-{ 
+{
     use Sluggable;
     use SoftDeletes;
 
@@ -45,9 +45,9 @@ class Product extends Model
         'product_image',
         'product_image_small',
         'product_status',
-        'out_of_stock',    
+        'out_of_stock',
     ];
-    // color 
+    // color
     function color()
     {
         return $this->hasMany('App\Model\Product\ProductColor', 'product_id');
@@ -57,7 +57,7 @@ class Product extends Model
     {
         return $this->hasMany('App\Model\Product\ProductSize', 'product_id');
     }
-    // fabric 
+    // fabric
     function fabric()
     {
         return $this->hasMany('App\Model\Product\ProductFabric', 'product_id');
@@ -88,15 +88,15 @@ class Product extends Model
     }
 
     /**
-    * Return the sluggable configuration array for this model.
-    *
-    * @return array
-    */
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
     public function sluggable()
     {
         return [
             'product_slug' => [
-                'source' => ['product_name','product_code'],
+                'source' => ['product_name', 'product_code'],
                 'separator' => '-',
                 'onUpdate' => true,
                 'unique' => true,
@@ -126,5 +126,4 @@ class Product extends Model
     {
         return $this->hasMany('App\Model\Product\ProductReview', 'product_id');
     }
-    
 }

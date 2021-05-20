@@ -25,8 +25,8 @@
         <div class="row ">
             <div class="col-md-3">
                 <ul class="left-user-menu">
-                    <li><a href="" class="left-user-menu-active">My Order</a></li>
-                    <li><a href="">Personal Profile</a></li>
+                    <li><a href="" class="left-user-menu-active">Personal Profile</a></li>
+                    <li><a href="">My Order</a></li>
                     <li><a href="">My Address</a></li>
                     <li><a href="">Payment Method</a></li>
                     <li><a href="">Wishlist</a></li>

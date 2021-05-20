@@ -79,10 +79,20 @@
                                     @foreach ($categoryData['sub_categories'] as $subCategory)
                                     <div class="col-lg-3 col-md-12">
                                         <ul class="wstliststy02 clearfix">
-                                            <li class="wstheading clearfix"> {{$subCategory['category_name']}} </li>
+                                            @if(count($subCategory['sub_sub_categories']))
+                                            <li class="wstheading clearfix">
+                                                {{$subCategory['category_name']}}
+                                                @else
+                                            </li>
+                                            <li class="clearfix">
+                                                <a href="{{url('/')}}/category/{{$categoryData['category_slug']}}/{{$subCategory['category_slug']}}">
+                                                    {{$subCategory['category_name']}}
+                                                </a>
+                                            </li>
+                                                @endif
                                                 @foreach ($subCategory['sub_sub_categories'] as $subSubCategory)
                                                 <li>
-                                                    <a href="{{$subSubCategory['category_slug']}}">{{$subSubCategory['category_name']}}</a>
+                                                    <a href="{{url('/')}}/category/{{$categoryData['category_slug']}}/{{$subCategory['category_slug']}}/{{$subSubCategory['category_slug']}}">{{$subSubCategory['category_name']}}</a>
                                                     {{-- <span class="wstmenutag redtag">Popular</span> --}}
                                                 </li>
                                                 @endforeach

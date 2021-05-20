@@ -7,7 +7,7 @@
 @endpush
 
 @section('content')
-<div class="page"> 
+<div class="page">
  <!-- Page breadcrumbs -->
  <div class="page-header">
     <div class="row">
@@ -54,7 +54,7 @@
                                         <table class="table table-bordered table-hover table-striped dataTable w-full" data-url="{{route('adminPanel.orderDetails.getOrderDetails', ['type' => $type] )}}"  data-change-status-url="{{ route('adminPanel.orderDetails.changeStatus') }}" data-destroy-url="{{ route('adminPanel.orderDetails.moveToTrash') }}">
                                             <thead class="table-header">
                                                 <tr>
-                                                    <th width="30" class=""> 
+                                                    <th width="30" class="">
                                                         <div class="checkbox-custom checkbox-primary">
                                                             <input type="checkbox" id="record" name="select_all" value="1">
                                                             <label for="record"></label>

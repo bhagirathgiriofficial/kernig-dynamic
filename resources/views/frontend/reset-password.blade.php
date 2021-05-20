@@ -57,19 +57,16 @@
                 <div class="alert alert-success" role="alert">
                     {{ session('status') }}
                 </div>
-            @endif
-
-            <!-- Validation error -->
-            @if ($errors->any())
-                <div class="alert dark alert-danger">
-                    @foreach ($errors->all() as $error)
-                        <div> {{ $error }} </div>
-                    @endforeach
-                </div>
+            @elseif($errors->any())
+            <div class="alert dark alert-danger">
+                @foreach ($errors->all() as $error)
+                    <div> {{ $error }} </div>
+                @endforeach
+            </div>
             @endif
             <!-- / Validation error -->
 
-            <form method="POST" action="{{ route('adminPanel.passwordRest') }}" class="reset-password-form">
+            <form method="POST" action="{{url('/change-password')}}" class="reset-password-form">
                 @csrf
 
                 <input type="hidden" name="token" value="{{ $token }}">

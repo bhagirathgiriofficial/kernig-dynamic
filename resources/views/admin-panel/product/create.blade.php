@@ -185,7 +185,7 @@
                           <div class="form-group not-required">
                             <label class="form-control-label" for="product_description">@lang('language.product_description')
                             </label>
-                            {!! Form::textarea('product_description', '', ['class'=>'form-control',  'id' => 'product_description','autocomplete' => 'off']) !!}
+                            {!! Form::textarea('product_description', '', ['class'=>'editor-textarea',  'id' => 'product_description','autocomplete' => 'off', 'style' =>'resize:both']) !!}
                           </div>
                         </div>
                         <div class="col-md-6">

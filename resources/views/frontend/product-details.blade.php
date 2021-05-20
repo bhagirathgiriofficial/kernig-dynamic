@@ -4,7 +4,7 @@
 <div class="container-fluid headtype">
     <div class="container">
         <div class="row char">
-            Home / <span class="submenu"> Product Detail</span>
+            Home / <span class="submenu"> {{$product['product_name']}}</span>
         </div>
     </div>
 </div>
@@ -14,6 +14,36 @@
 <section class="container-fluid cart">
     <div class="container">
         <div class="row">
+            {{-- <div class="col-sm-12 col-xm-12 col-md-6 col-lg-8 col-xl-8 proslide">
+                <div id="custCarousel" class="carousel slide" data-ride="carousel" align="center">
+                    <!-- slides -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item  active">
+                            <img src="{{asset('frontend/img/charebig.png')}}" alt="Hills">
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="{{asset('frontend/img/charebig.png')}}" alt="Hills">
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="{{asset('frontend/img/charebig.png')}}" alt="Hills">
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="{{asset('frontend/img/charebig.png')}}" alt="Hills">
+                        </div>
+
+                    </div> <!-- Left right --> <a class="carousel-control-prev" href="#custCarousel" data-slide="prev"> <span class="carousel-control-prev-icon"></span> </a> <a class="carousel-control-next" href="#custCarousel" data-slide="next"> <span class="carousel-control-next-icon"></span> </a> <!-- Thumbnails -->
+                    <ol class="carousel-indicators list-inline">
+                        <li class="list-inline-item active"> <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#custCarousel"> <img src="{{asset('frontend/img/charebig.png')}}" class="img-fluid thumbimg"> </a> </li>
+                        <li class="list-inline-item"> <a id="carousel-selector-1" data-slide-to="1" data-target="#custCarousel"> <img src="{{asset('frontend/img/charebig.png')}}" class="img-fluid thumbimg"> </a> </li>
+                        <li class="list-inline-item"> <a id="carousel-selector-2" data-slide-to="2" data-target="#custCarousel"> <img src="{{asset('frontend/img/charebig.png')}}" class="img-fluid thumbimg"> </a> </li>
+                        <li class="list-inline-item"> <a id="carousel-selector-2" data-slide-to="3" data-target="#custCarousel"> <img src="{{asset('frontend/img/charebig.png')}}" class="img-fluid thumbimg"> </a> </li>
+
+                    </ol>
+                </div>
+            </div> --}}
             <div class="col-sm-12 col-xm-12 col-md-6 col-lg-8 col-xl-8 proslide">
                 <div id="custCarousel" class="carousel slide" data-ride="carousel" align="center">
                     <!-- slides -->
@@ -45,60 +75,36 @@
                 </div>
             </div>
             <div class="col-sm-12 col-xm-12 col-md-6 col-lg-4 col-xl-4 prosingle">
-                <h1>Emery</h1>
+                <h1> {{$product['product_name']}}</h1>
                 <p>Emery Lounge</p>
                 <p>Beech wood Armchair</p>
-                <h3>Rs. 8000</h3>
-
-
+                <h5 class="mt-3">Rs. <del> {{$product['product_price']}} </del> ( {{$product['product_discount_percent']}} % off. )</h5>
+                <h3 class="mt-3">Rs. {{$product['product_discounted_price']}} </h3>
                 <div class="procolor">
                     <h3>Color</h3>
+                    @foreach ($product['color'] as $color)
                     <div class="colorcirclechild">
-                        <div class="colorcircle" style="background-color: red;"></div>
-                        <p>Red</p>
+                        <div class="colorcircle" style="background-color:{{$color['color_code']}};"></div>
+                        <p>{{$color['color_name']}}</p>
                     </div>
-                    <div class="colorcirclechild">
-                        <div class="colorcircle" style="background-color: blue;"></div>
-                        <p>Blue</p>
-                    </div>
-                    <div class="colorcirclechild">
-                        <div class="colorcircle" style="background-color: green;"></div>
-                        <p>Green</p>
-                    </div>
-                    <div class="colorcirclechild">
-                        <div class="colorcircle" style="background-color: pink;"></div>
-                        <p>Pink</p>
-                    </div>
-
+                    @endforeach
                 </div>
 
                 <div class="clear"></div>
                 <div class="procolor">
                     <h3>Wood Finish</h3>
-
+                    @foreach ($product['fabric'] as $fabric)
                     <div class="colorcirclechild">
                         <div class="colorcircle"><img src="{{asset('frontend/img/w1.jpg')}}"></div>
-                        <p>Oak</p>
+                        <p>{{$fabric['fabric_name']}}</p>
                     </div>
-                    <div class="colorcirclechild">
-                        <div class="colorcircle"><img src="{{asset('frontend/img/w2.jpg')}}"></div>
-                        <p>Cherry</p>
-                    </div>
-                    <div class="colorcirclechild">
-                        <div class="colorcircle"><img src="{{asset('frontend/img/w3.jpg')}}"></div>
-                        <p>Thek</p>
-                    </div>
-                    <div class="colorcirclechild">
-                        <div class="colorcircle"><img src="{{asset('frontend/img/w4.jpg')}}"></div>
-                        <p>Cedar</p>
-                    </div>
+                    @endforeach
+
                 </div>
 
                 <button type="submit" class="cartbu">Add To Cart</button>
-
-
-                <div class="dimation">
-                    <h3 id="flip">Dimensions  <i class='fas fa-angle-right'></i></h3>
+                {{-- <div class="dimation">
+                    <h3 id="flip" style="cursor: pointer">Dimensions  <i class='fas fa-angle-right'></i></h3>
                     <ul id="panel">
                         <li>Height (cm)     89</li>
                         <li>Width (cm)      74 </li>
@@ -106,10 +112,10 @@
                         <li>Weight (kg)     15 </li>
                         <li>Packaging dimensions: H61 x W86 x D76 cm</li>
                     </ul>
-                </div>
+                </div> --}}
 
                 <div class="dimation">
-                    <h3 id="flip1">Product Detail  <i class='fas fa-angle-right'></i></h3>
+                    <h3 id="flip1" style="cursor: pointer">Product Detail  <i class='fas fa-angle-right'></i></h3>
                     <p id="panel1">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
                     </p>
