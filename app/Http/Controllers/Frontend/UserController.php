@@ -143,7 +143,7 @@ class UserController extends Controller
             ];
             try {
                 Mail::send('emails.forgot_mail', $data, function ($message) use ($data) {
-                    $message->from('info@kerig.com', 'kerig');
+                    $message->from('info@kerig.com', 'kerig'
                     $message->to($data['user']['email'], $data['user']['f_name']);
                     $message->subject('Forgot Password');
                 });
