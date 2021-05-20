@@ -1,0 +1,506 @@
+/* ------------- Validation Css ------------- */
+::-webkit-scrollbar {
+    width: 7px;
+    border-radius: 50px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f0f0ef;
+    height: 100%;
+    border-radius: 50px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #3e8ef7;
+    height: 68px;
+    border-radius: 50px;
+}
+
+.invalid-feedback {
+    font-size: 13px !important;
+    font-weight: 400;
+}
+
+.has-danger .bootstrap-select .btn-default {
+    border-color: #ff4c52 !important;
+}
+
+.has-success .bootstrap-select .btn-default {
+    border-color: #11c26d !important;
+}
+
+.select-picker .invalid-feedback {
+    position: absolute;
+    top: 35px;
+}
+
+.dropify-wrapper .invalid-feedback {
+    list-style-type: none !important;
+    padding: 0 !important;
+    margin: 0px !important;
+    background: #f8d7da !important;
+    color: #721c24 !important;
+    position: absolute !important;
+    left: 0 !important;
+    font-size: 14px !important;
+    display: block !important;
+    width: 100% !important;
+    padding: 10px !important;
+    bottom: 33% !important;
+}
+
+.has-danger .bootstrap-select .btn-default {
+    border-color: #ff4c52 !important;
+}
+
+.has-success .bootstrap-select .btn-default {
+    border-color: #11c26d !important;
+}
+
+/* ------------------------------------------ */
+
+/* ------------- Forgot Password Css ------------- */
+.page-forgot-password form {
+    width: 300px;
+}
+
+.reset-password-left {
+    text-align: left !important;
+    display: block;
+}
+
+/* ----------------------------------------------- */
+
+
+/* ------------- Bootstrap Css ------------- */
+.select-picker .btn-light {
+    background-color: transparent !important;
+    border-color: #e4eaec !important;
+    box-shadow: none !important;
+    color: #76838f !important;
+}
+
+.select-picker .btn-light:focus {
+    background-color: transparent !important;
+    border-color: #e4eaec !important;
+    box-shadow: #3e8ef7 !important;
+}
+
+.select-picker .dropdown-menu>.dropdown-header {
+    font-weight: 500 !important;
+}
+
+.select-picker .check-mark {
+    margin-top: 5px !important;
+}
+
+.select-picker.btn-group .dropdown-menu {
+    max-height: 300px !important;
+    padding-bottom: 0px !important;
+    overflow: scroll !important;
+    overflow-x: scroll !important;
+}
+
+.select-picker.btn-group .inner::-webkit-scrollbar {
+    width: 0px !important;
+}
+
+.select-picker.btn-group .dropdown-menu::-webkit-scrollbar {
+    width: 3px;
+}
+
+.select-picker.btn-group .dropdown-menu::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+/* ------------- Bootstrap Css ------------- */
+
+/* ------------- Loading Css ------------- */
+.input-loading {
+    width: 95%;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    bottom: 12px;
+    text-align: center;
+    padding-top: 5px;
+    z-index: 99;
+    font-size: 24px;
+    color: #3e8ef7;
+}
+
+/* ------------- Loading Css ------------- */
+
+/* ------------- Dropify Css ------------- */
+
+.has-error .dropify-message .dropify-error {
+    display: none !important;
+}
+
+.has-error .dropify-errors-container ul {
+    list-style-type: none !important;
+    padding: 0 !important;
+    margin: 0px !important;
+    background: #f8d7da !important;
+    color: #721c24 !important;
+    position: absolute !important;
+    left: 0 !important;
+    font-size: 14px !important;
+    display: block !important;
+    width: 100% !important;
+    padding: 10px !important;
+    /* top: 0px; */
+    bottom: 33% !important;
+}
+
+/* ------------- Dropify Css ------------- */
+
+/* ------------- Common Css ------------- */
+.badge {
+    font-size: 12px;
+}
+
+.hide-block {
+    display: none;
+}
+
+.site-menu-title i {
+    margin-right: 10px;
+}
+
+.display-block {
+    display: block;
+}
+
+.form-control-label span {
+    float: right;
+    display: block;
+    font-size: 18px;
+    text-align: right;
+    cursor: pointer;
+    margin-top: -5px;
+}
+
+.language-icon {
+    border: 1px solid #76838f;
+    font-size: 11px !important;
+    height: 19px;
+    width: 19px;
+    text-align: center !important;
+    border-radius: 100%;
+    background: #76838f;
+    color: #fff;
+    margin-top: 0px !important;
+    /* line-height: 21px; */
+    font-weight: bold;
+}
+
+.form-control-label .active {
+    border: 1px solid #3e8ef7;
+    background: #3e8ef7;
+}
+
+.no-cursor {
+    cursor: initial !important;
+}
+
+/* ------------- Common Css ------------- */
+
+
+/* ------------- DataTable Css ------------- */
+.dataTables_wrapper .dt-buttons {
+    width: auto;
+    float: right;
+    margin-bottom: 10px;
+}
+
+.dataTables_wrapper .dataTables_filter {
+    float: left;
+    width: 20%;
+    margin-right: 5px;
+    text-align: left !important;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+    /* height: 36px; */
+}
+
+.dataTables_wrapper .dataTables_filter label {
+    margin-bottom: 0px;
+}
+
+.dataTables_wrapper .btn-toolbar {
+    float: right;
+}
+
+table.dataTable.select tbody tr,
+table.dataTable thead th:first-child {
+    cursor: pointer;
+}
+
+.dataTable .selected {
+    background-color: #f3f7f9 !important;
+}
+
+.dt-delete {
+    border-radius: 0px;
+    border-right: 0;
+}
+
+.dt-buttons .buttons-csv {
+    border-radius: 0px;
+}
+
+.datatabe-lable {
+    display: block;
+    line-height: 18px;
+}
+
+.dataTable tbody td {
+    word-break: break-word;
+    vertical-align: middle;
+}
+
+.dataTable tbody td a {
+    text-decoration: none;
+}
+
+/* ------------- DataTable Css ------------- */
+
+/* ------------- Switch Button Css ------------- */
+.switch {
+    position: relative;
+    display: block;
+    width: 60px;
+    height: 34px;
+    float: right;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    display: none;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input.default:checked+.slider {
+    background-color: #444;
+}
+
+input.primary:checked+.slider {
+    background-color: #2196F3;
+}
+
+input.success:checked+.slider {
+    background-color: #8bc34a;
+}
+
+input.info:checked+.slider {
+    background-color: #3de0f5;
+}
+
+input.warning:checked+.slider {
+    background-color: #FFC107;
+}
+
+input.danger:checked+.slider {
+    background-color: #f44336;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* ------------- Switch Button Css ------------- */
+
+/* ------------- Text Editor Css ------------- */
+.note-placeholder {
+    z-index: 1;
+}
+
+.note-editor.note-frame {
+    border: 1px solid #e4eaec !important;
+}
+
+.note-popover .popover-content,
+.card-header.note-toolbar {
+    background: #fff !important;
+    border-bottom: 1px solid #e4eaec !important;
+}
+
+/* ------------- Text Editor Css ------------- */
+
+
+/* ------------- Papers Css ------------- */
+.btn-remove {
+    cursor: pointer;
+}
+
+.modal-content .loading {
+    padding: 20px;
+    color: #000;
+    font-size: 22px;
+    text-align: center;
+}
+
+.question-type-margin {
+    margin-bottom: 8px;
+}
+
+/* ------------- Papers Css ------------- */
+
+
+/* ------------- Filter Css ------------- */
+.filter {
+    margin-top: 15px;
+}
+
+.filter .pd-0 {
+    padding: 0px;
+}
+
+/* ------------- Filter Css ------------- */
+
+/* ------------- Question Module Css ------------- */
+.question-block {
+    position: relative;
+}
+
+.question-block-disabled {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(241, 241, 241, 0.8);
+    top: 0px;
+    z-index: 999;
+    text-align: center;
+    padding: 10%;
+    font-size: 22px;
+}
+
+.question-image .dropify-wrapper {
+    height: 205px !important;
+}
+
+.question-text {
+    position: relative;
+}
+
+.question-text .invalid-feedback {
+    position: absolute;
+    bottom: -20px;
+}
+
+/* ------------- Question Module Css ------------- */
+
+.tooltip {
+    z-index: 100000000;
+}
+
+.note-textarea {
+    position: relative;
+}
+
+.note-textarea .invalid-feedback {
+    position: absolute;
+    top: 241px;
+    left: 0px;
+}
+.same_as
+{
+    position: absolute;
+    top: 50%;
+    margin-top: -17px;
+    left: 50%;
+    margin-left: -80px;
+}
+#toggleMenubar{
+    display: none !important;
+}
+.show-color{
+    padding: 5px;
+    border-radius: 2px;
+}
+.ibtnDel{
+    text-align: center;
+    color: red;
+    margin-bottom: 5px;
+
+}
+.add-more-btn{
+    margin-bottom: 10px;
+
+}
+.social-panel-padding{
+    padding-top    : 5px !important;
+    padding-bottom : 5px !important;
+}
+.required label:after {
+  content:" * ";
+  font-size: 15px;
+  color:red;
+}
+.not-required label:after {
+  content:"";
+  font-size: 15px;
+  color:red;
+}
+.remove-other-image{
+    margin-left: 10%;
+}
+.admin-loader{
+    position: fixed; 
+    left: 50%;
+    z-index: 99999;
+    display: none;
+}
+.admin-loader-show{
+    display: block;   
+}
+.site-menubar-footer{
+    display: none;
+}
+.mm-panels {
+    height: 100%;
+}
+.data-table-container .table-responsive::-webkit-scrollbar {
+    height: 7px;
+}
